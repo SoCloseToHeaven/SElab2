@@ -1,0 +1,115 @@
+@startuml
+left to right direction
+package ru.ifmo.se.pokemon {
+class Pokemon
+abstract class Move
+class PhysicalMove
+abstract class DamageMove
+class SpecialMove
+class StatusMove
+
+Move <|- DamageMove
+Move <|- StatusMove
+
+DamageMove <|- PhysicalMove
+DamageMove <|- SpecialMove
+}
+package src.pokemons {
++class Baltoy extends Pokemon {
++Baltoy(name:String, level: int)
+}
+
+
++class Boufallant extends Pokemon{
++Boufallant(name:String, level: int)
+}
+
+
++class Claydol extends Baltoy {
++Musharna(name:String, level: int)
+}
+
+
++class Sewaddle extends Pokemon{
++Sewaddle(name:String, level: int)
+}
+
+
++class Swadloon extends Sewaddle{
++Swadloon(name:String, level: int)
+}
+
+
++class Leavanny extends Swadloon{
++Leavanny(name:String, level: int)
+}
+}
+package src.moves {
+package src.moves.physical {
++class AerialAce extends PhysicalMove{
++AerialAce()
+#boolean checkAccuracy(att: Pokemon, def: Pokemon)
+#String describe()
+}
+
++class Facade extends PhysicalMove{
++Facade()
+#String describe()
+}
+
++class HornAttack extends PhysicalMove {
++HornAttack()
+#String describe()
+}
+
++class IronHead extends PhysicalMove{
++HornAttack()
+#String describe()
+}
+
++class StoneEdge extends PhysicalMove{
++StoneEdge()
+#double calcCriticalHit(pokemon: Pokemon, pokemon1: Pokemon)
+#String describe()
+}
+}
+package src.moves.special {
++class IceBeam extends SpecialMove {
++IceBeam()
+#void applyOppEffects(oppositePokemon: Pokemon)
+#String describe()
+}
+
++class Psychic extends SpecialMove{
++Psychic()
+#void applyOppEffects(pokemon: Pokemon)
+#String describe()
+}
+}
+package src.moves.status {
++class CalmMind extends StatusMove{
++CalmMind()
+#void applySelfEffects(pokemon: Pokemon)
+#String describe()
+}
+
++class GrassWhistle extends StatusMove{
++GrassWhistle()
+#void applyOppEffects(pokemon: Pokemon)
+#String describe()
+}
+
++class Rest extends StatusMove{
++Rest()
+#void applySelfEffects(pokemon: Pokemon)
+#String describe
+}
+
++class StringShot extends StatusMove{
++StringShot()
+#void applyOppEffects(oppositePokemon: Pokemon)
+#String describe()
+}
+
+}
+@enduml
